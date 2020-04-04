@@ -91,7 +91,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('Flutter login demo'),
+          title: new Text('v0.0.2-beta'),
         ),
         body: Stack(
           children: <Widget>[
@@ -211,7 +211,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
         obscureText: true,
         autofocus: false,
         decoration: new InputDecoration(
-            hintText: 'Password',
+            hintText: 'Введите пароль',
             icon: new Icon(
               Icons.lock,
               color: Colors.grey,
@@ -225,7 +225,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   Widget showSecondaryButton() {
     return new FlatButton(
         child: new Text(
-            _isLoginForm ? 'Создать аккаунт' : 'У вас уже есть аккаунт? Авторизуйтесь',
+            _isLoginForm ? 'Регистрация' : 'У вас уже есть аккаунт? Авторизуйтесь',
             style: new TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300)),
         onPressed: toggleFormMode);
   }
@@ -240,7 +240,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
             shape: new RoundedRectangleBorder(
                 borderRadius: new BorderRadius.circular(30.0)),
             color: Colors.blue,
-            child: new Text(_isLoginForm ? 'Войти' : 'Регистрация',
+            child: new Text(_isLoginForm ? 'Войти' : 'Зарегистрироваться',
                 style: new TextStyle(fontSize: 20.0, color: Colors.white)),
             onPressed: validateAndSubmit,
           ),

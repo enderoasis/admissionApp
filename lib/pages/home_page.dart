@@ -249,10 +249,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('Flutter login demo'),
+          title: new Text('v0.0.2-beta'),
           actions: <Widget>[
             new FlatButton(
-                child: new Text('Logout',
+                child: new Text('Выход',
                     style: new TextStyle(fontSize: 17.0, color: Colors.white)),
                 onPressed: signOut)
           ],
