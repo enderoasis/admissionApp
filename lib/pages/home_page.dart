@@ -3,14 +3,18 @@ import 'package:myapp/domain/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:myapp/models/todo.dart';
 import 'dart:async';
+import 'package:myapp/domain/friends.dart';
+import 'package:myapp/domain/forma.dart';
+import 'package:myapp/domain/location.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key key, this.auth, this.userId, this.logoutCallback})
+  HomePage({Key key, this.auth, this.userId, this.logoutCallback, this.title})
       : super(key: key);
 
   final BaseAuth auth;
   final VoidCallback logoutCallback;
   final String userId;
+  final String title;
 
   @override
   State<StatefulWidget> createState() => new _HomePageState();
@@ -18,7 +22,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Todo> _todoList;
-
+  PageController _pageController;
+  int _page = 0;
   final FirebaseDatabase _database = FirebaseDatabase.instance;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
@@ -33,7 +38,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
+    _pageController = new PageController();
     //_checkEmailVerification();
 
     _todoList = new List();
@@ -113,6 +118,19 @@ class _HomePageState extends State<HomePage> {
     _onTodoAddedSubscription.cancel();
     _onTodoChangedSubscription.cancel();
     super.dispose();
+    _pageController.dispose();
+  }
+  void navigationTapped(int page) {
+    // Animating to the page.
+    // You can use whatever duration and curve you like
+    _pageController.animateToPage(page,
+        duration: const Duration(milliseconds: 300), curve: Curves.ease);
+  }
+
+  void onPageChanged(int page) {
+    setState(() {
+      this._page = page;
+    });
   }
 
   onEntryChanged(Event event) {
@@ -257,13 +275,60 @@ class _HomePageState extends State<HomePage> {
                 onPressed: signOut)
           ],
         ),
-        body: showTodoList(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            showAddTodoDialog(context);
-          },
-          tooltip: 'Increment',
-          child: Icon(Icons.add),
-        ));
+      body: new PageView(
+        children: [
+          new Forma(),
+          new Location("Location screen"),
+          new Friends("Friends screen"),
+        ],
+        onPageChanged: onPageChanged,
+        controller: _pageController,
+      ),
+      bottomNavigationBar: new Theme(
+        data: Theme.of(context).copyWith(
+          // sets the background color of the `BottomNavigationBar`
+          canvasColor: const Color(0xFF167F67),
+        ), // sets the inactive color of the `BottomNavigationBar`
+        child: new BottomNavigationBar(
+          items: [
+            new BottomNavigationBarItem(
+                icon: new Icon(
+                  Icons.home,
+                  color: const Color(0xFFFFFFFF),
+                ),
+                title: new Text(
+                  "Home",
+                  style: new TextStyle(
+                    color: const Color(0xFFFFFFFF),
+                  ),
+                )),
+            new BottomNavigationBarItem(
+                icon: new Icon(
+                  Icons.location_on,
+                  color: const Color(0xFFFFFFFF),
+                ),
+                title: new Text(
+                  "Location",
+                  style: new TextStyle(
+                    color: const Color(0xFFFFFFFF),
+                  ),
+                )),
+            new BottomNavigationBarItem(
+                icon: new Icon(
+                  Icons.people,
+                  color: const Color(0xFFFFFFFF),
+                ),
+                title: new Text(
+                  "Friends",
+                  style: new TextStyle(
+                    color: const Color(0xFFFFFFFF),
+                  ),
+                ))
+          ],
+          onTap: navigationTapped,
+          currentIndex: _page,
+        ),
+      ),
+    );
   }
 }
