@@ -19,19 +19,25 @@ https://flutter.dev/docs/get-started/install
 
 Трёхоконное мобильное приложения на платформах Android , IOS. <br>
 Структура:<br>
-1.Заявление<br>
+1. Авторизация/Регистрация <br>
+Для входа и регистрации <br>
+
+![Image alt](https://github.com/enderoasis/admissionApp/blob/master/assets/pic0.JPG)
+
+
+2.Заявление<br>
 Первое окно , целью которого является сбор и внесение введённой информации абитуриентом или сотрудником приёмной комиссии.
 <br>
 
 ![Image alt](https://github.com/enderoasis/admissionApp/blob/master/assets/pic1.JPG)
 <br>
-2.Документы<br>
+3.Документы<br>
 В этом разделе , осуществляется возможность загрузки нужных документов и.т.д <br>
 
 ![Image alt](https://github.com/enderoasis/admissionApp/blob/master/assets/pic2.JPG)
 
 <br>
-3.Новости<br>
+4.Новости<br>
 Для своевременного оповещения абитуриентов о предстоящих мероприятиях и новостей.
 <br>
 
