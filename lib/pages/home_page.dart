@@ -297,7 +297,7 @@ class _HomePageState extends State<HomePage> {
                   color: const Color(0xFFFFFFFF),
                 ),
                 title: new Text(
-                  "Home",
+                  "Заявление",
                   style: new TextStyle(
                     color: const Color(0xFFFFFFFF),
                   ),
@@ -308,7 +308,7 @@ class _HomePageState extends State<HomePage> {
                   color: const Color(0xFFFFFFFF),
                 ),
                 title: new Text(
-                  "Location",
+                  "Документы",
                   style: new TextStyle(
                     color: const Color(0xFFFFFFFF),
                   ),
@@ -319,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                   color: const Color(0xFFFFFFFF),
                 ),
                 title: new Text(
-                  "Friends",
+                  "Новости",
                   style: new TextStyle(
                     color: const Color(0xFFFFFFFF),
                   ),
