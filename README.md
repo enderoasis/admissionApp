@@ -16,4 +16,4 @@ https://flutter.dev/docs/get-started/install
 Структура:
 1.Заявление
 Первое окно , целью которого является сбор и внесение введённой информации абитуриентом или сотрудником приёмной комиссии.
-![Image alt](https://github.com/enderoasis/AdmissionApp/raw/master/assets/image.png)
+![Image alt](https://github.com/enderoasis/AdmissionApp/raw/master/assets/pic1.jpg)
