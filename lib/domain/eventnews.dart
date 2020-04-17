@@ -1,10 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Friends extends StatelessWidget {
-  Friends(this.listType);
+class EventNews extends StatelessWidget {
+  EventNews(this.listType);
   final String listType;
-
   @override
   Widget build(BuildContext context) {
     return new Scaffold(

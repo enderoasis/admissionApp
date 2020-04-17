@@ -3,9 +3,9 @@ import 'package:myapp/domain/authentication.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:myapp/models/todo.dart';
 import 'dart:async';
-import 'package:myapp/domain/friends.dart';
+import 'package:myapp/domain/docapply.dart';
 import 'package:myapp/domain/forma.dart';
-import 'package:myapp/domain/location.dart';
+import 'package:myapp/domain/eventnews.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.auth, this.userId, this.logoutCallback, this.title})
@@ -278,8 +278,8 @@ class _HomePageState extends State<HomePage> {
       body: new PageView(
         children: [
           new Forma(),
-          new Location("Location screen"),
-          new Friends("Friends screen"),
+          new DocApply("Документы"),
+          new EventNews("Новости"),
         ],
         onPageChanged: onPageChanged,
         controller: _pageController,
@@ -293,7 +293,7 @@ class _HomePageState extends State<HomePage> {
           items: [
             new BottomNavigationBarItem(
                 icon: new Icon(
-                  Icons.home,
+                  Icons.account_box,
                   color: const Color(0xFFFFFFFF),
                 ),
                 title: new Text(
@@ -304,7 +304,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             new BottomNavigationBarItem(
                 icon: new Icon(
-                  Icons.location_on,
+                  Icons.assignment,
                   color: const Color(0xFFFFFFFF),
                 ),
                 title: new Text(
@@ -315,7 +315,7 @@ class _HomePageState extends State<HomePage> {
                 )),
             new BottomNavigationBarItem(
                 icon: new Icon(
-                  Icons.people,
+                  Icons.event_note,
                   color: const Color(0xFFFFFFFF),
                 ),
                 title: new Text(

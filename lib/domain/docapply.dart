@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Location extends StatelessWidget {
-  Location(this.listType);
+class DocApply extends StatelessWidget {
+  DocApply(this.listType);
   final String listType;
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
