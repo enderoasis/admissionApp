@@ -37,7 +37,7 @@ https://flutter.dev/docs/get-started/install
 
 ![Image alt](https://github.com/enderoasis/admissionApp/blob/master/assets/pic3.JPG)
 
-##Про структуру
+## Про структуру
 
 Зайдем в папку со сгенерированным приложением и разберемся что у нас там есть. Не со всем, но с нужным: <br>
 
