@@ -14,7 +14,10 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: new ThemeData(
           primarySwatch: Colors.blue,
-        ),
+            inputDecorationTheme: const InputDecorationTheme(
+              labelStyle: TextStyle(color: Colors.black ),
+              hintStyle: TextStyle(color: Colors.grey),
+            )),
 
         home: new RootPage(auth: new Auth()),
 

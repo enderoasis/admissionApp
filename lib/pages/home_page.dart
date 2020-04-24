@@ -297,7 +297,7 @@ class _HomePageState extends State<HomePage> {
                   color: const Color(0xFFFFFFFF),
                 ),
                 title: new Text(
-                  "Заявление",
+                  "Данные",
                   style: new TextStyle(
                     color: const Color(0xFFFFFFFF),
                   ),
