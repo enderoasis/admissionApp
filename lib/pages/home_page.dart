@@ -267,19 +267,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return new Scaffold(
         appBar: new AppBar(
-          title: new Text('v0.0.2-beta'),
+          title: new Text(''),
           actions: <Widget>[
             new FlatButton(
                 child: new Text('Выход',
-                    style: new TextStyle(fontSize: 17.0, color: Colors.white)),
+                    style: new TextStyle(fontSize: 15.0, color: Colors.white)),
                 onPressed: signOut)
           ],
         ),
       body: new PageView(
         children: [
           new Forma(),
-          new DocApply("Документы"),
-          new EventNews("Новости"),
+          new DocApply(),
+          new EventNews(),
         ],
         onPageChanged: onPageChanged,
         controller: _pageController,
@@ -288,7 +288,7 @@ class _HomePageState extends State<HomePage> {
         data: Theme.of(context).copyWith(
           // sets the background color of the `BottomNavigationBar`
           canvasColor: const Color(0xFF167F67),
-        ), // sets the inactive color of the `BottomNavigationBar`
+        ), // 4673D1
         child: new BottomNavigationBar(
           items: [
             new BottomNavigationBarItem(
@@ -319,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                   color: const Color(0xFFFFFFFF),
                 ),
                 title: new Text(
-                  "Новости",
+                  "FAQ",
                   style: new TextStyle(
                     color: const Color(0xFFFFFFFF),
                   ),
