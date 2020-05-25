@@ -45,16 +45,16 @@ class MyAppScreenMode extends State<Forma> {
       _birthdate = FocusNode(),
       _adress = FocusNode();
 
-  TextEditingController field1 = new TextEditingController();
-  TextEditingController field2 = new TextEditingController();
-  TextEditingController field3 = new TextEditingController();
-  TextEditingController field4  = new TextEditingController();
-  TextEditingController field5 = new TextEditingController();
-  TextEditingController field6 = new TextEditingController();
-  TextEditingController field7 = new TextEditingController();
-  TextEditingController field8 = new TextEditingController();
-  TextEditingController field9 = new TextEditingController();
-  TextEditingController field10 = new TextEditingController();
+      TextEditingController field1 = new TextEditingController();
+      TextEditingController field2 = new TextEditingController();
+      TextEditingController field3 = new TextEditingController();
+      TextEditingController field4  = new TextEditingController();
+      TextEditingController field5 = new TextEditingController();
+      TextEditingController field6 = new TextEditingController();
+      TextEditingController field7 = new TextEditingController();
+      TextEditingController field8 = new TextEditingController();
+      TextEditingController field9 = new TextEditingController();
+      TextEditingController field10 = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {

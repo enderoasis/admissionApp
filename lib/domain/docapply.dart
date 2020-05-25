@@ -19,7 +19,7 @@ class _UploadScreenMode extends State<DocApply> {
   File sampleImage;
 
   Future getImage() async {
-    var tempImage = await ImagePicker.pickImage(source: ImageSource.gallery);
+    var tempImage = await ImagePicker.pickImage(source: ImageSource.camera);
 
     setState(() {
       sampleImage = tempImage;
@@ -56,6 +56,9 @@ class _UploadScreenMode extends State<DocApply> {
               FirebaseStorage.instance.ref().child('myimage.jpg');
               final StorageUploadTask task =
               firebaseStorageRef.putFile(sampleImage);
+              Scaffold.of(context).showSnackBar(
+                  SnackBar(content: Text('Успешно добавлено')));
+
             },
           )
         ],
