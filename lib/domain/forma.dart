@@ -195,7 +195,7 @@ return uid;
                       child: RaisedButton(
                         child: Text('Сохранить'),
                         onPressed: () { notesReference.push().set({
-                          'Id': _getCurrentUserName(),
+                          'Id': _getCurrentUserId(),
                       'Имя': field2.text,
                       'Фамилия': field1.text,
                           'Отчество': field3.text,
