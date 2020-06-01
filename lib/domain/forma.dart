@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/domain//focus_widget.dart';
 import 'package:myapp/date_field.dart';
 import 'package:dropdown_formfield/dropdown_formfield.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Forma extends StatefulWidget {
   @override
@@ -16,27 +18,27 @@ class MyData {
 }
 
 class MyAppScreenMode extends State<Forma> {
+  final notesReference = FirebaseDatabase.instance.reference();
   DateTime selectedDate;
   String _myActivity;
-  String _myActivityResult;
+
   final formKey = new GlobalKey<FormState>();
 
   @override
   void initState() {
     super.initState();
     _myActivity = '';
-    _myActivityResult = '';
-  }
+   }
 
   _saveForm() {
     var form = formKey.currentState;
     if (form.validate()) {
       form.save();
       setState(() {
-        _myActivityResult = _myActivity;
-      });
+       });
     }
   }
+
 
   final FocusNode _surname = FocusNode(),
       _name = FocusNode(),
@@ -44,6 +46,7 @@ class MyAppScreenMode extends State<Forma> {
       _patrname = FocusNode(),
       _birthdate = FocusNode(),
       _adress = FocusNode();
+
 
       TextEditingController field1 = new TextEditingController();
       TextEditingController field2 = new TextEditingController();
@@ -55,6 +58,13 @@ class MyAppScreenMode extends State<Forma> {
       TextEditingController field8 = new TextEditingController();
       TextEditingController field9 = new TextEditingController();
       TextEditingController field10 = new TextEditingController();
+
+  Future<String> _getCurrentUserName() async {
+    FirebaseUser user = await FirebaseAuth.instance.currentUser();
+    final uid = await user.uid;
+  //return uid;
+return uid;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -179,11 +189,20 @@ class MyAppScreenMode extends State<Forma> {
                         valueField: 'value',
                       ),
                     ),
+
                     Container(
                       margin: EdgeInsets.all(15),
                       child: RaisedButton(
                         child: Text('Сохранить'),
-                        onPressed: _saveForm,
+                        onPressed: () { notesReference.push().set({
+                          'Id': _getCurrentUserName(),
+                      'Имя': field2.text,
+                      'Фамилия': field1.text,
+                          'Отчество': field3.text,
+                          'Дата рождения': selectedDate,
+                      }).then((_) {
+                      // ...
+                      });},
                       ),
                     ),
 
