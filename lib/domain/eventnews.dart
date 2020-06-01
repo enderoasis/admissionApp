@@ -15,7 +15,6 @@ class EventNews extends StatelessWidget {
   }
 }
 
-// One entry in the multilevel list displayed by this app.
 class Entry {
   Entry(this.title, [this.children = const <Entry>[]]);
 
@@ -23,7 +22,7 @@ class Entry {
   final List<Entry> children;
 }
 
-// The entire multilevel list displayed by this app.
+// Вложенные списки вопросов
 final List<Entry> data = <Entry>[
   Entry(
     'Как поступить?',
